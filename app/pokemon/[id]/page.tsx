@@ -54,7 +54,7 @@ export default async function Pokemon({ params }: { params: { id: string } }) {
 
             <div className="grid grid-cols-2 gap-4">
               {Object.entries(pokemon.stats).map(([k, v]) => (
-                <div key={k} className="w-full rounded-md bg-neutral-100 p-4">
+                <div key={k} className="w-full rounded-md bg-neutral-100 p-2">
                   <h2 className="text-xl font-bold">{k}</h2>
                   <p className="text-lg">{v}</p>
                 </div>
@@ -62,7 +62,7 @@ export default async function Pokemon({ params }: { params: { id: string } }) {
             </div>
           </div>
         </div>
-        <div className="grid w-full grid-cols-1 divide-y divide-black md:grid-cols-3 md:divide-x">
+        <div className="grid w-full grid-cols-1 divide-y divide-black md:grid-cols-3 md:divide-x md:divide-y-0">
           <div className="p-4">
             <h2 className="text-2xl font-bold">Abilities</h2>
             {pokemon.abilities.map((a) => (
