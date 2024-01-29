@@ -1,14 +1,14 @@
 import { formatId } from "@/utils/formatId";
 
 export const PokemonCardSkeleton = () => (
-  <div className="flex flex-col bg-neutral-300 rounded-md p-4">
-    <div className="animate-pulse flex flex-col space-y-2">
-      <div className="rounded-md bg-neutral-500 flex-1 py-16"></div>
+  <div className="flex flex-col rounded-md bg-neutral-300 p-4">
+    <div className="flex animate-pulse flex-col space-y-2">
+      <div className="flex-1 rounded-md bg-neutral-500 py-16"></div>
 
       <div className="space-y-6">
-        <p className="text-neutral-700 font-bold">{formatId(0)}</p>
-        <div className="h-2 bg-neutral-500 rounded"></div>
-        <div className="h-2 bg-neutral-500 rounded"></div>
+        <p className="font-bold text-neutral-700">{formatId(0)}</p>
+        <div className="h-2 rounded bg-neutral-500"></div>
+        <div className="h-2 rounded bg-neutral-500"></div>
       </div>
     </div>
   </div>

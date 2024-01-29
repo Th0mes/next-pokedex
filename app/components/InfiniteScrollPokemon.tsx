@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { getPokemon, getPokemonById } from "@/actions/pokemon";
+import { getPokemon, getPokemonByName } from "@/actions/pokemon";
 import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import { PokemonCard } from ".";
 import { type IPokemonCards } from "@/schemas/pokemon/pokemonCard";
@@ -36,7 +36,7 @@ export const InfiniteScrollPokemon = ({
   async function fetchFilteredPokemon() {
     try {
       setLoading(true);
-      const filteredPokemon = await getPokemonById(search as any);
+      const filteredPokemon = await getPokemonByName(search as any);
 
       setPokemon(filteredPokemon as any);
     } catch (error) {
@@ -64,7 +64,7 @@ export const InfiniteScrollPokemon = ({
   const observerTarget = useInfiniteScroll(fetchMorePokemon);
 
   return pokemon.length > 0 ? (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mb-4">
+    <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
       {pokemon.map((p) => (
         <PokemonCard key={p.id} {...p} />
       ))}
@@ -77,7 +77,7 @@ export const InfiniteScrollPokemon = ({
       {!search ? <div ref={observerTarget} className="mb-1"></div> : null}
     </div>
   ) : (
-    <span className="w-full bg-neutral-300 p-4 rounded">
+    <span className="w-full rounded bg-neutral-300 p-4">
       No pokemon found, sorry for that. Try searching for another pokemon!
     </span>
   );
